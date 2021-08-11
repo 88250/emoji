@@ -4,12 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"net/http"
 	"os"
 	"strings"
 
 	"cloud.google.com/go/translate"
-	"golang.org/x/net/proxy"
 	"golang.org/x/text/language"
 )
 
@@ -72,13 +70,13 @@ func main() {
 }
 
 func googleTranslate(text string) (ret string, err error) {
-	dialer, err := proxy.SOCKS5("tcp", "127.0.0.1:1080", nil, proxy.Direct)
-	if err != nil {
-		return
-	}
-
-	httpTransport := &http.Transport{Dial: dialer.Dial}
-	http.DefaultClient.Transport = httpTransport
+	//dialer, err := proxy.SOCKS5("tcp", "127.0.0.1:1080", nil, proxy.Direct)
+	//if err != nil {
+	//	return
+	//}
+	//
+	//httpTransport := &http.Transport{Dial: dialer.Dial}
+	//http.DefaultClient.Transport = httpTransport
 
 	ctx := context.Background()
 	client, err := translate.NewClient(ctx)
