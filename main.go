@@ -52,6 +52,11 @@ func main() {
 			}
 			item.Keywords += "," + strings.ReplaceAll(keywordsZhCN, "，", ",")
 			fmt.Printf("%s|%s|%s|%s\n", item.Unicode, item.Keywords, item.Description, item.DescriptionZhCN)
+
+			//if 5 < i {
+			//	break
+			//}
+			_ = i
 		}
 	}
 
